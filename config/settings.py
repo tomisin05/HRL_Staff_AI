@@ -11,7 +11,7 @@ SIMILARITY_THRESHOLD = 0.40
 # Model names
 EMBEDDING_MODEL = "all-MiniLM-L6-v2"
 PINECONE_INDEX_NAME = "ra-housingbot"
-GEMINI_MODEL = "gemini-1.5-flash"
+GEMINI_MODEL = "gemini-2.5-flash-lite"
 
 # File constraints
 MAX_FILE_SIZE_MB = 20
