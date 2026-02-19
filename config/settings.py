@@ -20,3 +20,4 @@ ALLOWED_EXTENSIONS = [".pdf", ".docx"]
 # Chat parameters
 MAX_CHAT_HISTORY = 6
 MAX_QUERY_LENGTH = 1000
+

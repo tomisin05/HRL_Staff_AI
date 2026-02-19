@@ -7,11 +7,12 @@ import json
 from pathlib import Path
 from config.settings import *
 from core.utils import clean_text, generate_doc_id
+import streamlit as st
 
 class DocumentIngestor:
     def __init__(self, pinecone_api_key):
         self.embedding_model = SentenceTransformer(EMBEDDING_MODEL)
-        self.pc = Pinecone(api_key=pinecone_api_key)
+        self.pc = Pinecone(api_key=st.secrets["PINECONE_API_KEY"])
         self.index = self.pc.Index(PINECONE_INDEX_NAME)
     
     def extract_text_from_pdf(self, file):

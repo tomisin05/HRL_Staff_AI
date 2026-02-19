@@ -1,16 +1,17 @@
-import google.generativeai as genai
+from google import genai
 from config.settings import *
+import streamlit as st
 
 class Generator:
     def __init__(self, gemini_api_key):
-        genai.configure(api_key=gemini_api_key)
+        genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
         self.model = genai.GenerativeModel(GEMINI_MODEL)
     
     def build_prompt(self, query, chunks, chat_history):
         """Build the prompt for Gemini"""
         system_prompt = """You are a knowledgeable housing assistant for Resident Advisors (RAs).
 Answer questions ONLY based on the provided documentation excerpts.
-If the answer is not in the documentation, say so clearly and suggest the RA contact their Hall Director.
+If the answer is not in the documentation, say so clearly and suggest the RA contact their Community Director.
 Always cite the source document and section for your answer.
 Be concise, direct, and professional."""
         

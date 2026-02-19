@@ -1,11 +1,12 @@
 from sentence_transformers import SentenceTransformer
 from pinecone import Pinecone
 from config.settings import *
+import streamlit as st
 
 class Retriever:
     def __init__(self, pinecone_api_key):
         self.embedding_model = SentenceTransformer(EMBEDDING_MODEL)
-        self.pc = Pinecone(api_key=pinecone_api_key)
+        self.pc = Pinecone(api_key=st.secrets["PINECONE_API_KEY"])
         self.index = self.pc.Index(PINECONE_INDEX_NAME)
     
     def retrieve(self, query, top_k=TOP_K):
